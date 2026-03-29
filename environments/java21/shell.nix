@@ -1,14 +1,13 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  # Pinned to JDK 21 (LTS) — change deliberately and test against all build tools
+  # Pinned to JDK 21 (LTS)
   myJdk = pkgs.jdk21;
 in
 
 pkgs.mkShell {
   name = "java21-dev";
 
-  # nativeBuildInputs is preferred over buildInputs for build-time tooling
   nativeBuildInputs = [
     myJdk       # JDK 21 (LTS)
     pkgs.maven  # Dependency management
